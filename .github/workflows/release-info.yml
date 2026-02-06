@@ -1,0 +1,26 @@
+name: Update Release Description
+
+on:
+  release:
+    types: [created] # Wird ausgelöst, sobald du ein Release (auch Entwürfe) erstellst
+
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Wichtig, um die Release-Beschreibung bearbeiten zu dürfen
+
+    steps:
+      - name: Update Release Body
+        uses: softprops/action-gh-release@v2
+        with:
+          append_body: true # Fügt den Text an den bestehenden Text an, statt ihn zu löschen
+          body: |
+            
+            ---
+            ### 💡 Installationshinweis
+            Windows SmartScreen zeigt beim Start eventuell eine Warnung an. Dies liegt daran, dass die Datei nicht digital signiert ist. 
+            - **Klicke auf "Weitere Informationen" -> "Trotzdem ausführen".**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
