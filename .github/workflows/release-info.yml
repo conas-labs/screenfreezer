@@ -16,12 +16,12 @@ jobs:
         with:
           append_body: true # Fügt den Text an den bestehenden Text an, statt ihn zu löschen
           body: |
-                         
+
             ---
             ### ⚠️ HINWEIS ZUM ERSTEN START:
             Windows SmartScreen zeigt beim Start eventuell eine Warnung an. Dies liegt daran, dass die Datei nicht digital signiert ist.
-            
+
             **Klicke auf "Weitere Informationen" -> "Trotzdem ausführen".**
-        
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
